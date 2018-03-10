@@ -1,0 +1,22 @@
+{
+  "name": "sftp_switch",
+  "version": "1.0.0",
+  "description": "easy and fast switching of ftp hosts when using sublime sftp plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sublimetext",
+    "sublime",
+    "sftp"
+  ],
+  "author": "Martin Gottweis",
+  "license": "MIT",
+  "bin": {
+    "switch": "./index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^5.0.0"
+  }
+}
