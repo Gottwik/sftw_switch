@@ -2,15 +2,17 @@
 
 const fs = require('fs-extra')
 
-const switch_to_role = process.argv[2]
-if (!switch_to_role) {
-	console.log('there is nothing to switch to')
-	return
-}
-
 fs.readJson('./sftp-config.json', (err, sftp_config) => {
 	if (err) {
 		return console.error(err)
+	}
+
+	const switch_to_role = process.argv[2]
+	if (!switch_to_role) {
+		const delimiter = '\n\t * ';
+		console.log('currently on: * ' + sftp_config.host + ' *')
+		console.log('you can switch to one of these roles:' + delimiter + Object.keys(sftp_config.switch).join(delimiter) + '\n')
+		return
 	}
 
 	if (!(switch_to_role in sftp_config.switch)) {
